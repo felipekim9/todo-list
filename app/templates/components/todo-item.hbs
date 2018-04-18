@@ -1,1 +1,10 @@
-{{yield}}
+<div class="form-check">
+  <input
+    type="checkbox"
+    class="form-check-input"
+    checked={{item.isCompleted}}
+    onclick={{action (mut item.isCompleted) value="target.checked"}}>
+  <label class="form-check-label" for="defaultCheck1">
+    {{item.content}}-{{item.isCompleted}}
+  </label>
+</div>
