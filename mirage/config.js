@@ -26,6 +26,6 @@ export default function() {
   this.get('/todos');
   this.get('/todos/:id');
   this.post('/todos');
-  this.put('/todos/:id');
+  this.patch('/todos/:id');
   this.del('/todos/:id');
 }

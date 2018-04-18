@@ -11,6 +11,9 @@ export default Route.extend({
         let newTodo = this.get('store').createRecord('todo', {content: e.target.value});
         newTodo.save();
       }
+    },
+    editItem(todo) {
+      todo.save();
     }
   }
 });

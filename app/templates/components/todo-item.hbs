@@ -4,7 +4,24 @@
     class="form-check-input"
     checked={{item.isCompleted}}
     onclick={{action (mut item.isCompleted) value="target.checked"}}>
-  <label class="form-check-label {{if item.isCompleted "checked" "unChecked"}}" for="defaultCheck1">
-    {{item.content}}
-  </label>
+    {{#unless showEditInput}}
+      <label
+        class="form-check-label {{if item.isCompleted "checked" "unChecked"}}"
+        ondblclick={{action "toggleTodo"}}
+        for="defaultCheck1">
+        {{item.content}}
+      </label>
+    {{/unless}}
 </div>
+  {{#if showEditInput}}
+    <label>
+      <input
+        type="text"
+        class="edit-input"
+        value={{item.content}}
+        onblur={{action "doneEditing" value='target.value'}}
+        onkeydown={{action "handleKeydown"}}
+        autofocus
+      >
+    </label>
+  {{/if}}
