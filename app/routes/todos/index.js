@@ -10,9 +10,13 @@ export default Route.extend({
       let newTodo = this.get('store').createRecord('todo', {content: todoItem});
       newTodo.save();
     },
-    
+
     editItem(todo) {
       todo.save();
+    },
+
+    deleteItem(todo) {
+      todo.destroyRecord();
     }
   }
 });

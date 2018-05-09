@@ -2,6 +2,7 @@ import Component from '@ember/component';
 
 export default Component.extend({
   showEditInput: false,
+  btnIsVisible: false,
 
   actions: {
     checkToDo(result) {
@@ -27,6 +28,14 @@ export default Component.extend({
 
     toggleTodo() {
       this.toggleProperty('showEditInput');
+    },
+
+    deleteItem(item) {
+      this.get('deleteItem')(item);
+    },
+
+    apearButton() {
+      this.toggleProperty('btnIsVisible');
     }
   }
 
