@@ -1,6 +1,11 @@
 <div class="input-group input-group-lg">
   <div class="input-group-prepend">
-    <span class="input-group-text" id="inputGroup-sizing-lg">Large</span>
+    <span
+      class="input-group-text"
+      id="inputGroup-sizing-lg"
+    >
+      <button type="button" class="btn btn-outline-dark">V</button>
+    </span>
   </div>
   <input
     type="text"
@@ -8,5 +13,7 @@
     value={{inputValue}}
     aria-label="Large"
     aria-describedby="inputGroup-sizing-sm"
-    onkeydown={{action "create"}}>
+    onkeydown={{action "create"}}
+    placeholder="Crie uma nova tarefa!"
+  >
 </div>
