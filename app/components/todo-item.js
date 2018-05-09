@@ -2,25 +2,32 @@ import Component from '@ember/component';
 
 export default Component.extend({
   showEditInput: false,
+
   actions: {
-    checkToDo(result){
-      if(result == true){
+    checkToDo(result) {
+      if (result == true) {
         this.set('item','isCompleted', false);
       } else {
         this.set('item','isCompleted', true);
       }
-      console.log(this.get('item.isCompleted'));
     },
-    doneEditing(value) {
-      this.get("item").set('content', value);
-      this.get('editItem')(this.get('item'));
-      this.send('toggleTodo');
-    },
-    handleKeydown() {
 
+    doneEditing(e) {
+      const enterKeyCode = 13;
+      const isEnterCode = (e.keyCode === enterKeyCode);
+      let inputValue = e.target.value;
+
+      if (isEnterCode) {
+        const todoItem = this.get('item');
+        todoItem.set('content', inputValue);
+        this.get('editItem')(todoItem);
+        this.send('toggleTodo');
+      }
     },
+
     toggleTodo() {
       this.toggleProperty('showEditInput');
     }
   }
+
 });
