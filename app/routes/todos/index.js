@@ -6,11 +6,9 @@ export default Route.extend({
   },
 
   actions: {
-    createItem(e) {
-      if (e.keyCode === 13) {
-        let newTodo = this.get('store').createRecord('todo', {content: e.target.value});
-        newTodo.save();
-      }
+    createItem(todoItem) {
+      let newTodo = this.get('store').createRecord('todo', {content: todoItem});
+      newTodo.save();
     },
     editItem(todo) {
       todo.save();
