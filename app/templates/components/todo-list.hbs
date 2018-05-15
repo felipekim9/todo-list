@@ -1,7 +1,9 @@
-{{todo-input createItem=createItem}}
-<ul>
-  {{#each model as |item|}}
-    <li>{{todo-item item=item editItem=editItem deleteItem=deleteItem}}</li>
-  {{/each}}
-</ul>
-{{info-label model=model}}
+<div class="todo-app">
+  {{todo-input createItem=createItem}}
+  <ul class="todo-list">
+    {{#each model as |item|}}
+      <li>{{todo-item item=item editItem=editItem deleteItem=deleteItem}}</li>
+    {{/each}}
+  </ul>
+  {{info-label model=model}}
+</div>
