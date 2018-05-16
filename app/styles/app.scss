@@ -10,7 +10,7 @@
 }
 
 .todo-app{
-  width: 60%;
+  width: 70%;
   margin: 30px auto 0px auto;
 }
 
@@ -52,7 +52,12 @@
   background-color: #e9ecef;
 
   .total-description{
-    font-size: 12px;
     margin-top: 10px;
+    font-size: 12px;
   }
+
+  .btn-clear{
+    font-size: 10px;
+  }
+
 }
