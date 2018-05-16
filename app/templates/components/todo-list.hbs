@@ -1,9 +1,11 @@
 <div class="todo-app">
-  {{todo-input createItem=createItem}}
+  {{todo-input createItem=createItem toggleAll=(action "toggleAll")}}
+
   <ul class="todo-list">
     {{#each model as |item|}}
       {{todo-item item=item editItem=editItem deleteItem=deleteItem}}
     {{/each}}
   </ul>
+
   {{info-label model=model}}
 </div>
