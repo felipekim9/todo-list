@@ -1,33 +1,37 @@
-<div class="form-check">
-  <input
-    type="checkbox"
-    class="form-check-input"
-    checked={{item.isCompleted}}
-    onclick={{action (mut item.isCompleted) value="target.checked"}}>
-  {{#unless showEditInput}}
-    <label
-      class="form-check-label {{if item.isCompleted "checked" "unChecked"}}"
-      ondblclick={{action "toggleTodo"}}
-      for="defaultCheck1"
-      onmouseenter={{action "apearButton"}}>
-      {{item.content}}
-    </label>
-  {{else}}
-    <label>
-      <input
-        type="text"
-        class="edit-input"
-        value={{item.content}}
-        onkeydown={{action "doneEditing"}}
-        autofocus
+<div class="todo-list__item"
+onmouseenter={{action "toggleDeleteButton"}}
+onmouseleave={{action "toggleDeleteButton"}}>
+  <div class="form-check">
+    <input
+      type="checkbox"
+      class="form-check-input"
+      checked={{item.isCompleted}}
+      onclick={{action (mut item.isCompleted) value="target.checked"}}>
+    {{#unless showEditInput}}
+      <label
+        class="form-check-label {{if item.isCompleted "checked" "unChecked"}}"
+        ondblclick={{action "toggleTodo"}}
+        for="defaultCheck1"
+        >
+        {{item.content}}
+      </label>
+    {{else}}
+      <label>
+        <input
+          type="text"
+          class="edit-input"
+          value={{item.content}}
+          onkeydown={{action "doneEditing"}}
+          autofocus
+        >
+      </label>
+    {{/unless}}
+    <button
+      type="button"
+      class="btn btn-danger btn-sm {{if btnIsVisible " " "hidden"}}"
+      onclick={{action "deleteItem" item}}
       >
-    </label>
-  {{/unless}}
-  <button
-    type="button"
-    class="btn btn-danger btn-sm {{if btnIsVisible " " "hidden"}}"
-    onclick={{action "deleteItem" item}}
-    >
-    Delete
-  </button>
+      Delete
+    </button>
+  </div>
 </div>

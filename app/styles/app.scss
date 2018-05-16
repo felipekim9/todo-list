@@ -20,6 +20,26 @@
   margin-top: 10%;
 }
 
+
 .todo-list{
   list-style: none;
+  padding-left: 0;
+
+  .todo-list__item {
+    height: 50px;
+
+    .form-check {
+      height: 50px;
+    }
+
+    .form-check-input {
+      margin-top: 10px;
+    }
+
+    .form-check,
+    .form-check-label {
+      line-height: 34px;
+    }
+  }
+
 }

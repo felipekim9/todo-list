@@ -1,6 +1,7 @@
 import Component from '@ember/component';
 
 export default Component.extend({
+  tagName: 'li',
   showEditInput: false,
   btnIsVisible: false,
 
@@ -34,7 +35,7 @@ export default Component.extend({
       this.get('deleteItem')(item);
     },
 
-    apearButton() {
+    toggleDeleteButton() {
       this.toggleProperty('btnIsVisible');
     }
   }
