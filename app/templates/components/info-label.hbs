@@ -12,7 +12,14 @@
         <button type="button" class="btn btn-sm btn-light">Completed</button>
       </div>
       <div class="col-sm-3">
-        <button type="button" class="bbtn btn-sm btn-light btn-clear">Clear Completed</button>
+        <button
+          onclick={{action "clearCompleted"}}
+          type="button"
+          class="btn btn-sm btn-light btn-clear
+          {{if isThereChecked " " "hidden"}}"
+        >
+          Clear Completed
+        </button>
       </div>
     </div>
   </div>

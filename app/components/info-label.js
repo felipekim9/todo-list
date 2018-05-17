@@ -12,5 +12,23 @@ export default Component.extend({
     } else {
       return "Item na lista";
     }
-  })
+  }),
+
+  isThereChecked: computed('model.@each.isCompleted', function(){
+    const model= this.get('model');
+    const isAnyCompleted = model.isAny('isCompleted');
+    return isAnyCompleted;
+  }),
+
+  actions: {
+    clearCompleted() {
+      // const model= this.get('model');
+      // const checkedTodos = model.filterBy('isCompleted', true);
+      //
+      // checkedTodos.invoke('destroyRecord');
+      this.get('model')
+        .filterBy('isCompleted', true)
+        .invoke('destroyRecord');
+    }
+  }
 });
